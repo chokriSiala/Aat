@@ -274,7 +274,7 @@ var html;
 document.addEventListener("deviceready", deviceready, false);
 
 function deviceready() {
- //   MyDevice.loadPhoneContacts();
+ //   MyDevice.loadPhoneContacts();hh
     var callback = function (status) {
         if (status === Strophe.Status.REGISTER) {
             // fill out the fields
