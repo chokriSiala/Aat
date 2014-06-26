@@ -8,7 +8,6 @@
   background: #e6e6e6 url(../images/logo.png) no-repeat center;
   text-indent: -9999px;
 }
-
 .logo h1 {
   margin: 0;
   padding: 0;
@@ -46,11 +45,7 @@
 #disconnect {
   background-image: url(../images/icons/unlocked.png);
 }
-
-* {
-  transform: translate3d(0, 0, 0);
-}
-
+*{transform: translate3d(0, 0, 0);}
 body {
   font-family: Helvetica;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -83,8 +78,8 @@ h1 {
 #login_dialog label {
   float: left;
   line-height: 32px;
-  z-index: 500;
-  margin: auto;
+  z-index:500;
+  margin:auto;
 }
 
 #jid, #password {
@@ -109,15 +104,9 @@ h1 {
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
 }
-
-.ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a {
-  padding: 5px 10px;
+.roster-jid{
+ font-size: 8px;
 }
-
-.roster-jid {
-  font-size: 8px;
-}
-
 #roster-area {
   background-color: #000;
   border-left: solid 2px #ddd;
@@ -135,7 +124,6 @@ h1 {
   bottom: 0;
   z-index: 99999;
 }
-
 #toolbar .button {
   float: left;
   width: 23%;
@@ -182,6 +170,7 @@ h1 {
   height: 280px;
   font-size: 14px;
   border-bottom: solid 2px #ddd;
+
   -webkit-overflow-scrolling: touch;
   overflow-y: scroll;
 }
@@ -192,7 +181,6 @@ h1 {
   margin-bottom: 7px;
   padding: 5px;
 }
-
 .message-wrap .message {
   overflow: hidden;
   font-size: 14px;
@@ -210,7 +198,6 @@ h1 {
 .message-wrap input {
   -webkit-appearance: none;
 }
-
 .message-wrap .time {
   font-size: 12px;
   color: #999;
@@ -221,17 +208,14 @@ h1 {
   border-top: 1px solid #cacaca;
   border-radius: 0 0 5px 5px;
 }
-
 .chat-footer .send_message {
   float: left;
   padding: 7px;
   width: 100%;
 }
-
 .chat-footer .send_message #message {
   display: none;
 }
-
 .chat-footer .send_message .message_field {
   float: left;
   width: -webkit-calc(100% - 95px);
@@ -247,7 +231,6 @@ h1 {
   font-family: inherit;
   border-radius: 50px;
 }
-
 .chat-footer .send_message button {
   float: right;
   height: 24px;

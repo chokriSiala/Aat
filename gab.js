@@ -274,6 +274,7 @@ var html;
 document.addEventListener("deviceready", deviceready, false);
 
 function deviceready() {
+<<<<<<< HEAD
  //   MyDevice.loadPhoneContacts();hh
     var callback = function (status) {
         if (status === Strophe.Status.REGISTER) {
@@ -300,6 +301,9 @@ function deviceready() {
     };
     
   register.connect("http://192.168.1.79:7070/http-bind/", callback, wait, hold);
+=======
+    /*MyDevice.loadPhoneContacts();*/
+>>>>>>> 33a7c1d88b98280b29f9fa582b22dc8f6eed3746
     $('#login_dialog').dialog({
         autoOpen: true,
         draggable: false,
