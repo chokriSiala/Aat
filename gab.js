@@ -52,7 +52,7 @@ on_presence_list: function (presence) {
             // open the dialog
             Gab.pending_subscriber = from;
             $('#approve-jid').text(Strophe.getBareJidFromJid(from));
-            $('#approve_dialog').dialog('open');
+            approve_dialog();
         } else if (ptype !== 'error') {
             var contact = $('#roster-area li#' + jid_id + ' .roster-contact')
                 .removeClass("online")
@@ -274,95 +274,27 @@ var html;
 document.addEventListener("deviceready", deviceready, false);
 
 function deviceready() {
- 
     
-   
+    showPromptLogin();
     
-    $('#login_dialog').dialog({
-        autoOpen: true,
-        draggable: false,
-        modal: true,
-        title: 'Connect to Aateepee',
-        buttons: {
-            "Connect": function () {
-                $(document).trigger('connect', {
-                    jid: $('#jid').val().toLowerCase()+"@softtodoserver/Ressource",
-                    password: $('#password').val()
-                });
-
-                $('#password').val('');
-                $(this).dialog('close');
-            }
-        }
-    });
-
-    $('#contact_dialog').dialog({
-        autoOpen: false,
-        draggable: false,
-        modal: true,
-        title: 'Add a Contact',
-        text: "OK",
-        buttons: {
-            "Add": function () {
-                $(document).trigger('contact_added', {
-                    jid: $('#contact-jid').val().toLowerCase()+"@softtodoserver/Ressource",
-                    name: $('#contact-name').val()
-                });
-
-                $('#contact-jid').val('');
-                $('#contact-name').val('');
-
-                $(this).dialog('close');
-            }
-        }
-    });
-
-  $('#show-contact').bind('click',function (ev) {
+  
+  $('#show-contact').bind('touchend',function (ev) {
    $('#chat-area').hide();
    $('#roster-area').show();
   });
-    $('#new-contact').bind('click',function (ev) {
+    $('#new-contact').bind('touchend',function (ev) {
       Gab.connection.addHandler(Gab.on_presence_list, null, "presence");
       var pres = $pres();
             Gab.connection.send($pres());
 
-              $('#contact_dialog').dialog('open');
+                           contactDialog();
     });
 
-    $('#approve_dialog').dialog({
-        autoOpen: false,
-        draggable: false,
-        modal: true,
-        title: 'Subscription Request',
-        buttons: {
-            "Deny": function () {
-                Gab.connection.send($pres({
-                    to: Gab.pending_subscriber,
-                    "type": "unsubscribed"}));
-                Gab.pending_subscriber = null;
-
-                $(this).dialog('close');
-            },
-
-            "Approve": function () {
-                Gab.connection.send($pres({
-                    to: Gab.pending_subscriber,
-                    "type": "subscribed"}));
-
-                Gab.connection.send($pres({
-                    to: Gab.pending_subscriber,
-                    "type": "subscribe"}));
-
-                Gab.pending_subscriber = null;
-
-                $(this).dialog('close');
-            }
-        }
-    });
+    
 
     $('#chat-area').tabs().find('.ui-tabs-nav').sortable({axis: 'x'});
 
-    $('.roster-contact').live('click', function () {
+    $('.roster-contact').live('touchend', function () {
       $('#roster-area').hide();
       $('#chat-area').show();
         var jid = $(this).find(".roster-jid").text();
@@ -402,13 +334,13 @@ function deviceready() {
 
     });
 
-$('.sendMesage').live('click', function (ev) {
+$('.sendMesage').live('touchend', function (ev) {
         var jid = $(this).parent().data('jid');
         ev.preventDefault();
 
             var body = $('.chat-input').val();
                       var today=new Date();
-                      today=today.format("yyyy-mm-dd hh:mm");
+                      today=today.dateFormat();
 
           var message = $msg({to: jid,
            "type": "chat"}).c('body').t(body).c('delay',today).up().c('active', {xmlns: "http://jabber.org/protocol/chatstates"});
@@ -429,44 +361,17 @@ $('.sendMesage').live('click', function (ev) {
 
     });
 
-    $('#disconnect').bind('click',function () {
+    $('#disconnect').bind('touchend',function () {
         Gab.connection.disconnect();
         Gab.connection = null;
   
                            //   $('#toolbar').children().off();
     });
 
-    $('#chat_dialog').dialog({
-        autoOpen: false,
-        draggable: false,
-        modal: true,
-        width:200,
-        title: 'Start a Chat',
-        buttons: {
-            "Start": function () {
-                var jid = $('#chat-jid').val().toLowerCase();
-                var jid_id = Gab.jid_to_id(jid);
+   
 
-                $('#chat-area').tabs('add', '#chat-' + jid_id, jid);
-                $('#chat-' + jid_id).append(
-                    "<div class='chat-messages'></div>" +
-                    "<input type='text' class='chat-input'><button class='sendMesage'>Send</button>");
-
-                $('#chat-' + jid_id).data('jid', jid);
-
-                $('#chat-area').tabs('select', '#chat-' + jid_id);
-                $('#chat-' + jid_id + ' input').focus();
-
-
-                $('#chat-jid').val('');
-
-                $(this).dialog('close');
-            }
-        }
-    });
-
-    $('#new-chat').bind('click',function () {
-        $('#chat_dialog').dialog('open');
+    $('#new-chat').bind('touchend',function () {
+    chatDialog();
     });
 };
 
@@ -477,8 +382,8 @@ $(document).bind('connect', function (ev, data) {
         if (status == Strophe.Status.CONNECTING) {
 
     } else if (status == Strophe.Status.CONNFAIL || status == Strophe.Status.AUTHFAIL) {
-alert("fail1");
-$('#login_dialog').dialog('open');
+ 
+ showPromptLogin();
         $('#connect').get(0).value = 'connect';
     } else if (status == Strophe.Status.DISCONNECTING) {
 
@@ -490,7 +395,7 @@ $('#login_dialog').dialog('open');
                  
                  }else{
 
-  //  $('#login_dialog').dialog('open');
+ 
     }
 
     });
@@ -536,7 +441,7 @@ $(document).bind('disconnected', function () {
     $('#roster-area ul').empty();
     $('#chat-area ul').empty();
     $('#chat-area div').remove();
-    $('#login_dialog').dialog('open');
+    showPromptLogin();
    
 });
 
