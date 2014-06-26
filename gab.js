@@ -1,4 +1,4 @@
-
+var storage;
 var Gab = {
     connection: null,
 
@@ -336,7 +336,7 @@ $('.sendMesage').live('touchend', function (ev) {
 
             var body = $('.chat-input').val();
                       var today=new Date();
-                      today=today.dateFormat("yyyy-mm-dd hh:mm");
+                     today=today.format("yyyy-mm-dd hh:mm");;
 
           var message = $msg({to: jid,
            "type": "chat"}).c('body').t(body).c('delay',today).up().c('active', {xmlns: "http://jabber.org/protocol/chatstates"});
@@ -369,7 +369,14 @@ $('.sendMesage').live('touchend', function (ev) {
     $('#new-chat').bind('touchend',function () {
     chatDialog();
     });
-        showPromptLogin();
+    if (localStorage['auth']) {
+		storage = JSON.parse($.base64.decode(localStorage['auth']));
+		$(document).trigger('connect', {
+                            jid: storage.login,
+                            password:storage.password
+                            });
+       
+	} else   showPromptLogin();
 };
 
 $(document).bind('connect', function (ev, data) {
@@ -387,7 +394,9 @@ $(document).bind('connect', function (ev, data) {
     } else if (status == Strophe.Status.DISCONNECTED) {
   $(document).trigger('disconnected');
     } else if (status == Strophe.Status.CONNECTED) {
-       $(document).trigger('connected');
+     storage = {type: 0, login: data.jid, password: data.password};
+     localStorage['auth'] = $.base64.encode(JSON.stringify(storage));
+     $(document).trigger('connected');
    
                  
                  }else{
@@ -438,7 +447,8 @@ $(document).bind('disconnected', function () {
     $('#roster-area ul').empty();
     $('#chat-area ul').empty();
     $('#chat-area div').remove();
-    showPromptLogin();
+    	localStorage.removeItem('auth');
+                 showPromptLogin();
    
 });
 
