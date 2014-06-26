@@ -20,15 +20,13 @@
   padding: 10px;
   text-align: center;
 }
-
 .container {
-  padding: 10px;
+  padding: 0;
   padding-bottom: 55px;
   min-height: 460px;
   overflow: hidden;
   width: inherit;
 }
-
 /**********/
 #show-contact {
   background-image: url(../images/icons/macos.png);
@@ -58,76 +56,70 @@ body {
 h1 {
   text-align: center;
 }
-
 .hidden {
   display: none;
 }
-
 .button {
   padding: 1px;
   border: solid 1px #666;
   font-weight: bold;
 }
-
+/* login */
+.ui-dialog .ui-dialog-titlebar {
+	padding: 5px 9px;
+	position: relative;
+}
+/* chat */
+#chat-area #chat-admin-softtodoserver {
+  border: 1px solid #CCC;
+  border-radius: 0px;
+  padding: 0px 2px;
+  margin-left: 5px;
+}
+#chat-area #chat-admin-softtodoserver button.sendMesage {
+  font-size: 14px;
+}
+#chat-area
+.ui-state-active {
+  border: 1px solid #B9B9B9 !important;
+  background: #f3f3f3 url(images/ui-bg_glass_50_99c2ff_1x400.png) 50% 50% repeat-x !important;
+}
 .ui-widget-content {
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
 }
-
+.ui-dialog {
+	top:300px;
+}
 #login_dialog label {
   float: left;
   line-height: 32px;
   z-index:500;
   margin:auto;
 }
-
 #jid, #password {
-  width: 196px;
-  font-size: 14px;
+	width: 196px;
+	font-size: 14px;
 }
-/* chat */
-#chat-area #chat-admin-softtodoserver {
-	border: 1px solid #CCC;
-	border-radius: 0px;
-	padding: 0px 2px;
-	margin-left: 5px;
-	button.sendMesage{
-		font-size: 14px;
-	}
-}
-
-#chat-area 
 .ui-state-active {
-  border: 1px solid #B9B9B9 !important;
-  background: #f3f3f3 url(images/ui-bg_glass_50_99c2ff_1x400.png) 50% 50% repeat-x !important;
+	border: 1px solid #B9B9B9 !important;
+	/**/
+	background: #f3f3f3 url(images/ui-bg_glass_50_99c2ff_1x400.png) 50% 50% repeat-x !important;
 }
 
 .ui-tabs .ui-tabs-nav {
-  background: #F3F3F3;
-  -webkit-border-radius: 3px;
-  -webkit-border-bottom-right-radius: 0px;
-  -webkit-border-bottom-left-radius: 0px;
-  -moz-border-radius: 3px;
-  -moz-border-radius-bottomright: 0px;
-  -moz-border-radius-bottomleft: 0px;
-  border-radius: 3px;
-  border-bottom-right-radius: 0px;
-  border-bottom-left-radius: 0px;
+	background: #F3F3F3;
+	-webkit-border-radius: 3px;
+	-webkit-border-bottom-right-radius: 0px;
+	-webkit-border-bottom-left-radius: 0px;
+	-moz-border-radius: 3px;
+	-moz-border-radius-bottomright: 0px;
+	-moz-border-radius-bottomleft: 0px;
+	border-radius: 3px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
 }
-.ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a {
-	padding:5px 10px;
-}
-.roster-jid{
- font-size: 8px;
-}
-#roster-area {
-  background-color: #000;
-  border-left: solid 2px #ddd;
-  padding: 10px;
-  margin: 5px;
-}
-
 #toolbar {
   position: absolute;
   background-image: url(../images/nav-strip.png);
@@ -138,6 +130,7 @@ h1 {
   bottom: 0;
   z-index: 99999;
 }
+
 #toolbar .button {
   float: left;
   width: 23%;
@@ -160,17 +153,32 @@ h1 {
   padding-left: 10px;
   list-style: none;
 }
-
+.roster-jid{
+ font-size: 8px;
+}
+#roster-area {
+  background-color: #000;
+  border-left: solid 2px #ddd;
+  padding: 10px;
+  margin: 5px;
+}
 #chat-area {
   float: left;
   width: 100%;
   height: 395px;
 }
-
+#chat-area span {
+	font-size:13px;
+}
+/* Chat message */
 .chat-name {
   color: #fff;
 }
-
+.ui-tabs .ui-tabs-nav li a {
+float: left;
+text-decoration: none;
+padding: 5px 10px ;;
+}
 .chat-message .me {
   color: #fff;
 }
@@ -255,11 +263,10 @@ h1 {
 #chat-area input {
   margin-top: 2px;
   height: 41px;
-  width: 80%;
+  width: 200px;
 }
-
 #roster-area {
-  float: right;
+  float: left;
   border-left: solid 2px #ddd;
   padding: 10px;
   width: 100%;
@@ -495,18 +502,21 @@ input {
 }
 
 /*** ***/
-.sendMesage {
-  margin-top: 2px;
-  float: right;
-  width: 18%;
-  height: 40px;
-  line-height: 23px;
-  margin-right: 5px;
-  display: block;
-  padding: 0px 5px;
-  font-size: 18px;
-  line-height: 26px;
-  color: #000;
-  text-decoration: none;
-  font-family: Helvetica Neue,sans-serif;
+button.sendMesage {
+	margin-top: 2px;
+	float: left;
+	width: 83px;
+	height: 31px;
+	line-height: 23px;
+	margin-right: 5px;
+	display: block;
+	cursor: pointer;
+	padding: 0px 5px;
+	border-radius: 8px;
+	border:1px solid #B9B9B9 ;
+	font-size: 18px;
+	line-height: 26px;
+	color: #000;
+	text-decoration: none;
+	font-family: Helvetica Neue,sans-serif;
 }
