@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+          "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title>Aateepee6</title>
+   <meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+
+    <link rel='stylesheet' href='scripts/jquery-ui.css'>
+    <script src='scripts/jquery.js'></script>
+    <script src='scripts/jquery-ui.js'></script>
+    <script src='scripts/strophe.js'></script>
+    <script type="text/javascript" src='cordova.js'></script>
+    <link rel='stylesheet' href='css/main.css'>
+    <script type="text/javascript" src='device.js'></script>
+    <script type="text/javascript" src='gab.js'></script>
+  </head>
+  <body>
+   <div class="wrapper"  >
+   <div id="header">
+       Aateepee
+   </div>
+	  	<div class="container"  >
+		
+        <div class="row">
+			<div class="col-sm-12 col-md-8 col-lg-8">
+			  <div id='chat-area' class='hidden'>
+				  <ul></ul>
+			  </div>
+
+			  <div id='roster-area' class='hidden'>
+				  <ul></ul>
+			  </div>
+
+			  <!-- login dialog -->
+				<div id='login_dialog' class='hidden'>
+					 <input type='text' id='jid' placeholder="Jid">
+					 <input type='password' id='password' placeholder="Password">
+
+				</div>
+
+			  <!-- contact dialog -->
+			  <div id='contact_dialog' class='hidden'>
+				 <input type='text' id='contact-jid' placeholder="Jid">
+			     <input type='text' id='contact-name' placeholder="Name">
+
+                     </div>
+
+			  <!-- chat dialog -->
+			  <div id='chat_dialog' class='hidden'>
+				  <label>JID:</label><input type='text' id='chat-jid'>
+					  </div>
+
+			  <!-- approval dialog -->
+			  <div id='approve_dialog' class='hidden'>
+				  <p><span id='approve-jid'></span> has requested a subscription
+				  to your presence.  Approve or deny?</p>
+			  </div>
+			</div>
+			</div>
+				</div>
+        <div id='toolbar'  >
+			<span class='button home-nav' id='show-contact'>Contacts</span>
+			<span class='button ' id='new-contact'>new contact</span>
+			<span class='button' id='new-chat'>Chat</span>
+			<span class='button' id='disconnect'>Logout</span>
+	
+	</div>
+        </div>
+  </body>
+</html>
