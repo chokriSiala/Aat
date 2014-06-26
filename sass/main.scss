@@ -86,7 +86,18 @@ h1 {
   width: 196px;
   font-size: 14px;
 }
+/* chat */
+#chat-area #chat-admin-softtodoserver {
+	border: 1px solid #CCC;
+	border-radius: 0px;
+	padding: 0px 2px;
+	margin-left: 5px;
+	button.sendMesage{
+		font-size: 14px;
+	}
+}
 
+#chat-area 
 .ui-state-active {
   border: 1px solid #B9B9B9 !important;
   background: #f3f3f3 url(images/ui-bg_glass_50_99c2ff_1x400.png) 50% 50% repeat-x !important;
