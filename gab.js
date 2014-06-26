@@ -274,10 +274,6 @@ var html;
 document.addEventListener("deviceready", deviceready, false);
 
 function deviceready() {
-    
-    showPromptLogin();
-    
-  
   $('#show-contact').bind('touchend',function (ev) {
    $('#chat-area').hide();
    $('#roster-area').show();
@@ -292,7 +288,7 @@ function deviceready() {
 
     
 
-    $('#chat-area').tabs().find('.ui-tabs-nav').sortable({axis: 'x'});
+   $('#chat-area').tabs().find('.ui-tabs-nav').sortable({axis: 'x'});
 
     $('.roster-contact').live('touchend', function () {
       $('#roster-area').hide();
@@ -361,8 +357,8 @@ $('.sendMesage').live('touchend', function (ev) {
 
     });
 
-    $('#disconnect').live('touchend',function () {
-                          alert(1); Gab.connection.disconnect();
+    $('#disconnect').live('click',function () {
+   if(Gab.connection) Gab.connection.disconnect();
         Gab.connection = null;
   showPromptLogin();
                            //   $('#toolbar').children().off();
@@ -373,6 +369,7 @@ $('.sendMesage').live('touchend', function (ev) {
     $('#new-chat').bind('touchend',function () {
     chatDialog();
     });
+        showPromptLogin();
 };
 
 $(document).bind('connect', function (ev, data) {
