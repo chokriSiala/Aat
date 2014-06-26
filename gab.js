@@ -274,37 +274,7 @@ var html;
 document.addEventListener("deviceready", deviceready, false);
 
 function deviceready() {
-<<<<<<< HEAD
- //   MyDevice.loadPhoneContacts();hh
-    var callback = function (status) {
-        if (status === Strophe.Status.REGISTER) {
-            // fill out the fields
-            connection.register.fields.username = "juliet";
-            connection.register.fields.password = "R0m30";
-            // calling submit will continue the registration process
-            connection.register.submit();
-        } else if (status === Strophe.Status.REGISTERED) {
-            console.log("registered!");
-            // calling login will authenticate the registered JID.
-            connection.authenticate();
-        } else if (status === Strophe.Status.CONFLICT) {
-            console.log("Contact already existed!");
-        } else if (status === Strophe.Status.NOTACCEPTABLE) {
-            console.log("Registration form not properly filled out.")
-        } else if (status === Strophe.Status.REGIFAIL) {
-            console.log("The Server does not support In-Band Registration")
-        } else if (status === Strophe.Status.CONNECTED) {
-            // do something after successful authentication
-        } else {
-            // Do other stuff
-        }
-    };
-    
-  register.connect("http://192.168.1.79:7070/http-bind/", callback, wait, hold);
-=======
-    /*MyDevice.loadPhoneContacts();*/
->>>>>>> 33a7c1d88b98280b29f9fa582b22dc8f6eed3746
-    $('#login_dialog').dialog({
+     $('#login_dialog').dialog({
         autoOpen: true,
         draggable: false,
         modal: true,
