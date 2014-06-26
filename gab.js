@@ -299,7 +299,7 @@ function deviceready() {
         }
     };
     
-    connection.register.connect("http://192.168.1.79:7070/http-bind/", callback, wait, hold);
+  register.connect("http://192.168.1.79:7070/http-bind/", callback, wait, hold);
     $('#login_dialog').dialog({
         autoOpen: true,
         draggable: false,
