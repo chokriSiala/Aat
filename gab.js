@@ -274,7 +274,7 @@ var html;
 document.addEventListener("deviceready", deviceready, false);
 
 function deviceready() {
-    MyDevice.loadPhoneContacts();
+   // MyDevice.loadPhoneContacts();
     $('#login_dialog').dialog({
         autoOpen: true,
         draggable: false,
