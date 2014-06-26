@@ -340,7 +340,7 @@ $('.sendMesage').live('touchend', function (ev) {
 
             var body = $('.chat-input').val();
                       var today=new Date();
-                      today=today.dateFormat();
+                      today=today.dateFormat("yyyy-mm-dd hh:mm");
 
           var message = $msg({to: jid,
            "type": "chat"}).c('body').t(body).c('delay',today).up().c('active', {xmlns: "http://jabber.org/protocol/chatstates"});
@@ -361,10 +361,10 @@ $('.sendMesage').live('touchend', function (ev) {
 
     });
 
-    $('#disconnect').bind('touchend',function () {
-        Gab.connection.disconnect();
+    $('#disconnect').live('touchend',function () {
+                          alert(1); Gab.connection.disconnect();
         Gab.connection = null;
-  
+  showPromptLogin();
                            //   $('#toolbar').children().off();
     });
 
