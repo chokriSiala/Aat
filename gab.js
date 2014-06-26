@@ -274,7 +274,7 @@ var html;
 document.addEventListener("deviceready", deviceready, false);
 
 function deviceready() {
-   /******/  $('#login_dialog').dialog({
+    $('#login_dialog').dialog({
         autoOpen: true,
         draggable: false,
         modal: true,
