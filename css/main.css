@@ -30,7 +30,7 @@
   width: inherit;
 }
 
-/**********/
+/*****  vcbcv *****/
 #show-contact {
   background-image: url(../images/icons/macos.png);
 }
@@ -92,8 +92,7 @@ h1 {
   font-size: 14px;
 }
 
-#chat-area
-.ui-state-active {
+#chat-area .ui-state-active {
   border: 1px solid #B9B9B9 !important;
   background: #f3f3f3 url(images/ui-bg_glass_50_99c2ff_1x400.png) 50% 50% repeat-x !important;
 }
