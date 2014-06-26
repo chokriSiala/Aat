@@ -23,7 +23,7 @@ var Gab = {
                                                "<div class='roster-contact offline'>" +
                                                "<div class='roster-name'>" +
                                                name +
-                                               "</div><div class='roster-jid'>" +
+                                               "</div><div class='roster-jid' >" +
                                                jid +
                                                "</div></div></li>");
             Gab.insert_contact(contact);
@@ -274,6 +274,10 @@ var html;
 document.addEventListener("deviceready", deviceready, false);
 
 function deviceready() {
+ 
+    
+   
+    
     $('#login_dialog').dialog({
         autoOpen: true,
         draggable: false,
@@ -467,10 +471,9 @@ $('.sendMesage').live('click', function (ev) {
 };
 
 $(document).bind('connect', function (ev, data) {
-    var conn = new Strophe.Connection(
+    var connection = new Strophe.Connection(
         'http://192.168.1.79:7070/http-bind/');
-
-    conn.connect(data.jid, data.password, function (status) {
+                     connection.connect(data.jid, data.password, function (status) {
         if (status == Strophe.Status.CONNECTING) {
 
     } else if (status == Strophe.Status.CONNFAIL || status == Strophe.Status.AUTHFAIL) {
@@ -483,19 +486,43 @@ $('#login_dialog').dialog('open');
   $(document).trigger('disconnected');
     } else if (status == Strophe.Status.CONNECTED) {
        $(document).trigger('connected');
-    }else{
+   
+                 
+                 }else{
 
   //  $('#login_dialog').dialog('open');
     }
 
     });
 
-    Gab.connection = conn;
+    Gab.connection = connection;
 });
 
 $(document).bind('connected', function () {
-  var iq = $iq({type: 'get'}).c('query', {xmlns: 'jabber:iq:roster'});
-   Gab.connection.sendIQ(iq, Gab.on_roster);
+     
+     /*
+                 
+                 var callback = function (status) {
+                 if (status === Strophe.Status.REGISTER) {alert("1"+status);
+                 Gab.connection.register.fields.username = "fghdfhg";alert("2"+status);
+                 Gab.connection.register.fields.name = "dfgfdgfdg";
+                 Gab.connection.register.fields.password = "dfddfgfdg";
+                 Gab.connection.register.submit();
+                 } else if (status === Strophe.Status.REGISTERED) {
+                 console.log("registered!");
+                 Gab.connection.authenticate();
+                 } else if (status === Strophe.Status.CONNECTED) {
+                 $(document).trigger('connected');
+                 } else if (status === Strophe.Status.DISCONNECTED) {
+                 console.log("Disconnected from XMPP-Server");
+                 }
+                 };
+                 
+                 //    connection.connect(data.jid, data.password, callback);
+                 Gab.connection.register.connect("test55@softtodoserver/Ressource", callback, 60, 1);*/
+
+                 var iq = $iq({type: 'get'}).c('query', {xmlns: 'jabber:iq:roster'});
+Gab.connection.sendIQ(iq, Gab.on_roster);
 Gab.connection.addHandler(Gab.on_roster_changed, 'jabber:iq:roster', 'iq', 'set');
 Gab.connection.addHandler(Gab.on_message,null, 'message', 'chat');
 
