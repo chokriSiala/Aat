@@ -1,18 +1,23 @@
 @media (max-width: 768px) {
+  /* line 2, ../sass/main.scss */
   .container {
     padding: 0;
     width: 100%;
   }
 }
+/* line 7, ../sass/main.scss */
 .logo {
   background: #e6e6e6 url(../images/logo.png) no-repeat center;
   text-indent: -9999px;
 }
+
+/* line 11, ../sass/main.scss */
 .logo h1 {
   margin: 0;
   padding: 0;
 }
 
+/* line 16, ../sass/main.scss */
 #header {
   height: 35px;
   background-color: #000000;
@@ -21,6 +26,7 @@
   text-align: center;
 }
 
+/* line 24, ../sass/main.scss */
 .container {
   padding: 10px;
   padding-bottom: 55px;
@@ -30,22 +36,32 @@
 }
 
 /**********/
+/* line 33, ../sass/main.scss */
 #show-contact {
   background-image: url(../images/icons/macos.png);
 }
 
+/* line 37, ../sass/main.scss */
 #new-contact {
   background-image: url(../images/icons/creatwrite.png);
 }
 
+/* line 41, ../sass/main.scss */
 #new-chat {
   background-image: url(../images/icons/mail.png);
 }
 
+/* line 45, ../sass/main.scss */
 #disconnect {
   background-image: url(../images/icons/unlocked.png);
 }
-*{transform: translate3d(0, 0, 0);}
+
+/* line 48, ../sass/main.scss */
+* {
+  transform: translate3d(0, 0, 0);
+}
+
+/* line 49, ../sass/main.scss */
 body {
   font-family: Helvetica;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -55,79 +71,97 @@ body {
   height: 100%;
 }
 
+/* line 58, ../sass/main.scss */
 h1 {
   text-align: center;
 }
 
+/* line 62, ../sass/main.scss */
 .hidden {
   display: none;
 }
 
+/* line 66, ../sass/main.scss */
 .button {
   padding: 1px;
   border: solid 1px #666;
   font-weight: bold;
 }
-/* login */
-.ui-dialog .ui-dialog-titlebar {
-	padding: 5px 9px;
-	position: relative;
+
+/* line 72, ../sass/main.scss */
+.ui-widget-content {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
 }
+
+/* line 78, ../sass/main.scss */
+#login_dialog label {
+  float: left;
+  line-height: 32px;
+  z-index: 500;
+  margin: auto;
+}
+
+/* line 85, ../sass/main.scss */
+#jid, #password {
+  width: 196px;
+  font-size: 14px;
+}
+
 /* chat */
+/* line 90, ../sass/main.scss */
 #chat-area #chat-admin-softtodoserver {
   border: 1px solid #CCC;
   border-radius: 0px;
   padding: 0px 2px;
   margin-left: 5px;
 }
+/* line 95, ../sass/main.scss */
 #chat-area #chat-admin-softtodoserver button.sendMesage {
   font-size: 14px;
 }
+
+/* line 101, ../sass/main.scss */
 #chat-area
 .ui-state-active {
   border: 1px solid #B9B9B9 !important;
   background: #f3f3f3 url(images/ui-bg_glass_50_99c2ff_1x400.png) 50% 50% repeat-x !important;
 }
-.ui-widget-content {
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
-}
-#login_dialog label {
-  float: left;
-  line-height: 32px;
-  z-index:500;
-  margin:auto;
-}
-#jid, #password {
-	width: 196px;
-	font-size: 14px;
-}
-.ui-state-active {
-	border: 1px solid #B9B9B9 !important;
-	background: #f3f3f3 url(images/ui-bg_glass_50_99c2ff_1x400.png) 50% 50% repeat-x !important;
-}
+
+/* line 106, ../sass/main.scss */
 .ui-tabs .ui-tabs-nav {
-	background: #F3F3F3;
-	-webkit-border-radius: 3px;
-	-webkit-border-bottom-right-radius: 0px;
-	-webkit-border-bottom-left-radius: 0px;
-	-moz-border-radius: 3px;
-	-moz-border-radius-bottomright: 0px;
-	-moz-border-radius-bottomleft: 0px;
-	border-radius: 3px;
-	border-bottom-right-radius: 0px;
-	border-bottom-left-radius: 0px;
+  background: #F3F3F3;
+  -webkit-border-radius: 3px;
+  -webkit-border-bottom-right-radius: 0px;
+  -webkit-border-bottom-left-radius: 0px;
+  -moz-border-radius: 3px;
+  -moz-border-radius-bottomright: 0px;
+  -moz-border-radius-bottomleft: 0px;
+  border-radius: 3px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
-.roster-jid{
- font-size: 8px;
+
+/* line 118, ../sass/main.scss */
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a {
+  padding: 5px 10px;
 }
+
+/* line 121, ../sass/main.scss */
+.roster-jid {
+  font-size: 8px;
+}
+
+/* line 124, ../sass/main.scss */
 #roster-area {
   background-color: #000;
   border-left: solid 2px #ddd;
   padding: 10px;
   margin: 5px;
 }
+
+/* line 131, ../sass/main.scss */
 #toolbar {
   position: absolute;
   background-image: url(../images/nav-strip.png);
@@ -138,6 +172,8 @@ h1 {
   bottom: 0;
   z-index: 99999;
 }
+
+/* line 141, ../sass/main.scss */
 #toolbar .button {
   float: left;
   width: 23%;
@@ -156,45 +192,53 @@ h1 {
 }
 
 /*** contact list ***/
+/* line 159, ../sass/main.scss */
 #roster-area ul {
   padding-left: 10px;
   list-style: none;
 }
 
+/* line 164, ../sass/main.scss */
 #chat-area {
   float: left;
   width: 100%;
   height: 395px;
 }
 
+/* line 170, ../sass/main.scss */
 .chat-name {
   color: #fff;
 }
 
+/* line 174, ../sass/main.scss */
 .chat-message .me {
   color: #fff;
 }
 
+/* line 178, ../sass/main.scss */
 .chat-event {
   font-style: italic;
   font-size: 75%;
 }
 
+/* line 183, ../sass/main.scss */
 .chat-messages {
   height: 280px;
   font-size: 14px;
   border-bottom: solid 2px #ddd;
-
   -webkit-overflow-scrolling: touch;
   overflow-y: scroll;
 }
 
+/* line 192, ../sass/main.scss */
 .message-wrap {
   opacity: 0,8;
   overflow: hidden;
   margin-bottom: 7px;
   padding: 5px;
 }
+
+/* line 198, ../sass/main.scss */
 .message-wrap .message {
   overflow: hidden;
   font-size: 14px;
@@ -205,31 +249,42 @@ h1 {
   padding: 5px;
 }
 
+/* line 208, ../sass/main.scss */
 .message-wrap:first-child {
   margin-top: 6px;
 }
 
+/* line 212, ../sass/main.scss */
 .message-wrap input {
   -webkit-appearance: none;
 }
+
+/* line 215, ../sass/main.scss */
 .message-wrap .time {
   font-size: 12px;
   color: #999;
 }
 
+/* line 220, ../sass/main.scss */
 .chat-footer {
   overflow: hidden;
   border-top: 1px solid #cacaca;
   border-radius: 0 0 5px 5px;
 }
+
+/* line 225, ../sass/main.scss */
 .chat-footer .send_message {
   float: left;
   padding: 7px;
   width: 100%;
 }
+
+/* line 230, ../sass/main.scss */
 .chat-footer .send_message #message {
   display: none;
 }
+
+/* line 233, ../sass/main.scss */
 .chat-footer .send_message .message_field {
   float: left;
   width: -webkit-calc(100% - 95px);
@@ -245,6 +300,8 @@ h1 {
   font-family: inherit;
   border-radius: 50px;
 }
+
+/* line 248, ../sass/main.scss */
 .chat-footer .send_message button {
   float: right;
   height: 24px;
@@ -252,12 +309,14 @@ h1 {
   margin-right: 15px;
 }
 
+/* line 255, ../sass/main.scss */
 #chat-area input {
   margin-top: 2px;
   height: 41px;
   width: 80%;
 }
 
+/* line 261, ../sass/main.scss */
 #roster-area {
   float: right;
   border-left: solid 2px #ddd;
@@ -266,49 +325,60 @@ h1 {
   height: 80%;
 }
 
+/* line 269, ../sass/main.scss */
 .roster-contact {
   padding: 3px;
 }
 
+/* line 273, ../sass/main.scss */
 .roster-contact:hover {
   background-color: #aaa;
   color: white;
 }
 
+/* line 278, ../sass/main.scss */
 .roster-name {
   font-size: 120%;
 }
 
+/* line 282, ../sass/main.scss */
 .roster-contact:hover {
   cursor: pointer;
 }
 
+/* line 286, ../sass/main.scss */
 .wrapper {
   position: relative;
   height: 100%;
   width: 100%;
 }
 
+/* line 292, ../sass/main.scss */
 .online {
   color: #3c3;
 }
 
+/* line 296, ../sass/main.scss */
 .away {
   color: #c33;
 }
 
+/* line 300, ../sass/main.scss */
 .offline {
   color: #ccc;
 }
 
+/* line 304, ../sass/main.scss */
 .chat-name {
   color: #fff;
 }
 
+/* line 308, ../sass/main.scss */
 #chat-area {
   background: #000;
 }
 
+/* line 312, ../sass/main.scss */
 .chat-input {
   float: left;
   width: 80;
@@ -322,12 +392,14 @@ h1 {
   border-radius: 6px;
 }
 
+/* line 325, ../sass/main.scss */
 .chat-message {
   overflow: hidden;
   margin-bottom: 7px;
   padding: 5px;
 }
 
+/* line 331, ../sass/main.scss */
 .chat-text {
   overflow: hidden;
   font-size: 14px;
@@ -340,16 +412,19 @@ h1 {
 
 /* Chat
 ==============================*/
+/* line 343, ../sass/main.scss */
 #chat {
   display: none;
   height: 100%;
 }
 
+/* line 349, ../sass/main.scss */
 #chat .chat-header,
 #chat .chat-footer {
   background: rgba(243, 243, 243, 0.9);
 }
 
+/* line 353, ../sass/main.scss */
 #chat .chat-header {
   padding: 13px;
   border-bottom: 1px solid #cacaca;
@@ -363,12 +438,14 @@ h1 {
   opacity: .8;
 }
 
+/* line 366, ../sass/main.scss */
 #chat .chat-header .room_name {
   display: block;
   float: left;
   line-height: 2px;
 }
 
+/* line 372, ../sass/main.scss */
 #chat .chat-header .logout {
   display: block;
   float: right;
@@ -379,10 +456,12 @@ h1 {
   text-decoration: none;
 }
 
+/* line 382, ../sass/main.scss */
 #chat .chat-header .logout:hover {
   opacity: 0.6;
 }
 
+/* line 386, ../sass/main.scss */
 #chat .scroller {
   height: -webkit-calc(100% - 41px);
   height: -moz-calc(100% - 41px);
@@ -391,6 +470,7 @@ h1 {
   background: #000;
 }
 
+/* line 394, ../sass/main.scss */
 #chat .chat-content {
   position: relative;
   overflow: auto;
@@ -398,6 +478,7 @@ h1 {
   height: 90%;
 }
 
+/* line 401, ../sass/main.scss */
 #chat .message-wrap {
   opacity: 0;
   overflow: hidden;
@@ -405,10 +486,12 @@ h1 {
   padding: 5px;
 }
 
+/* line 408, ../sass/main.scss */
 #chat .message-wrap:first-child {
   margin-top: 68px;
 }
 
+/* line 412, ../sass/main.scss */
 #chat .message-wrap .avatar {
   float: left;
   width: 35px;
@@ -418,6 +501,7 @@ h1 {
   border-radius: 100px;
 }
 
+/* line 421, ../sass/main.scss */
 #chat .message-wrap .message {
   overflow: hidden;
   font-size: 14px;
@@ -428,31 +512,37 @@ h1 {
   padding: 5px;
 }
 
+/* line 431, ../sass/main.scss */
 input {
   -webkit-appearance: none;
 }
 
+/* line 435, ../sass/main.scss */
 #chat .message-wrap .time {
   font-size: 12px;
   color: #999;
 }
 
+/* line 440, ../sass/main.scss */
 #chat .chat-footer {
   overflow: hidden;
   border-top: 1px solid #cacaca;
   border-radius: 0 0 5px 5px;
 }
 
+/* line 446, ../sass/main.scss */
 #chat .chat-footer .send_message {
   float: left;
   padding: 7px;
   width: 100%;
 }
 
+/* line 452, ../sass/main.scss */
 #chat .send_message #message {
   display: none;
 }
 
+/* line 456, ../sass/main.scss */
 #chat .send_message .message_field {
   float: left;
   width: -webkit-calc(100% - 95px);
@@ -469,6 +559,7 @@ input {
   border-radius: 50px;
 }
 
+/* line 472, ../sass/main.scss */
 #chat .send_message button {
   float: right;
   height: 24px;
@@ -479,6 +570,7 @@ input {
   border-radius: 8px;
 }
 
+/* line 482, ../sass/main.scss */
 #chat .chat-footer .occupants {
   float: right;
   padding: 7px 7px 7px 10px;
@@ -487,6 +579,7 @@ input {
   display: none;
 }
 
+/* line 490, ../sass/main.scss */
 #chat .occupants img {
   width: 16px;
   height: 16px;
@@ -495,6 +588,7 @@ input {
 }
 
 /*** ***/
+/* line 498, ../sass/main.scss */
 .sendMesage {
   margin-top: 2px;
   float: right;
