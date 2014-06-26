@@ -128,6 +128,7 @@ h1 {
 
 .roster-jid {
   font-size: 8px;
+    display: none;
 }
 
 #roster-area {
