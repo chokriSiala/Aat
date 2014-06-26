@@ -76,12 +76,20 @@ module.exports = [
         "merges": [
             "Contact"
         ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.dialogs/www/notification.js",
+        "id": "org.apache.cordova.dialogs.notification",
+        "merges": [
+            "navigator.notification"
+        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "org.apache.cordova.contacts": "0.2.10"
+    "org.apache.cordova.contacts": "0.2.10",
+    "org.apache.cordova.dialogs": "0.2.8"
 }
 // BOTTOM OF METADATA
 });
