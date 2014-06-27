@@ -7,23 +7,28 @@
    <meta name="format-detection" content="telephone=no" />
 <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
 
-    <link rel='stylesheet' href='scripts/jquery-ui.css'>
+     <link rel='stylesheet' href='css/main.css'>
+ 
     <script src='scripts/jquery.js'></script>
     <script src='scripts/jquery-ui.js'></script>
      <script src='scripts/jquery.base64.min.js'></script>
-       <script src='controller.js'></script>
+      <script type="text/javascript" src='scripts/dateformat.js'></script>
+      
+       <script src='controller/controller.js'></script>
+       <script src='controller/webService.js'></script>
        <script src='scripts/strophe.min.js'></script>
       <script src='scripts/strophe.register.js'></script>
+      
     <script type="text/javascript" src='cordova.js'></script>
-     <script type="text/javascript" src='scripts/dateformat.js'></script>
-    <link rel='stylesheet' href='css/main.css'>
+    
+
        <script type="text/javascript" src='popup.js'></script>    
     <script type="text/javascript" src='device.js'></script>
     <script type="text/javascript" src='gab.js'></script>
   </head>
   <body>
    <div class="wrapper"  >
-   <div id="header">
+   <div id="header" class='hidden'>
        Aateepee
    </div>
 	  	<div class="container"  >
@@ -43,8 +48,17 @@
 					 <input type='text' id='jid' placeholder="Jid">
 					 <input type='password' id='password' placeholder="Password">
                          <button id="loginConnect"> Login </button>
+                         <button id="signUpConnec" ontouchend="$(this).parents('div').fadeOut();$('#signUp_dialog').fadeIn();">signUp</button>
 
 				</div>
+                <div id='signUp_dialog' class='hidden'>
+                    <input type='text' id='jid' placeholder="Jid">
+                        <input type='password' id='password' placeholder="Password">
+                            
+                            <button id="signUpConnect">signUp</button>
+                            
+                            </div>
+
 
 			  <!-- contact dialog -->
 			  <div id='contact_dialog' class='hidden'>
@@ -66,11 +80,18 @@
 			</div>
 			</div>
 				</div>
-        <div id='toolbar'  >
-			<span class='button home-nav' id='show-contact'>Contacts</span>
+        <div id='toolbar' class='hidden' >
+            <span class='button home-nav' id='contact-btn'>Contacts</span>
+            <span class='button ' id='chat-btn'>Chat</span>
+            <span class='button' id='calendar-btn'>Sheduler</span>
+            <span class='button' id='files-btn'>Files</span>
+            <span class='button' id='config-btn'>Logout</span>
+
+
+<!--<span class='button home-nav' id='show-contact'>Contacts</span>
 			<span class='button ' id='new-contact'>new contact</span>
 			<span class='button' id='new-chat'>Chat</span>
-			<span class='button' id='disconnect'>Logout</span>
+			<span class='button' id='disconnect'>Logout</span>-->
 	
 	</div>
         </div>

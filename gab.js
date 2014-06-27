@@ -289,11 +289,11 @@ function deviceready() {
                            
                             });
     
-    $('#show-contact').bind('click',function (ev) {
+    $('#contact-btn').bind('click',function (ev) {
    $('#chat-area').hide();
    $('#roster-area').show();
   });
-    $('#new-contact').bind('click',function (ev) {
+    $('#chat-btn').bind('click',function (ev) {
                            var options = new ContactFindOptions();
                            options.filter="Bob";
                            var fields = ["id","displayName", "name","phoneNumbers"];
@@ -395,7 +395,7 @@ $('.sendMesage').live('click', function (ev) {
 
     });
 
-    $('#disconnect').live('click',function () {
+    $('#config-btn').live('click',function () {
    if(Gab.connection) Gab.connection.disconnect();
         Gab.connection = null;
   showhide();
@@ -404,7 +404,7 @@ $('.sendMesage').live('click', function (ev) {
 
    
 
-    $('#new-chat').bind('click',function () {
+    $('#calendar-btn').bind('click',function () {
     chatDialog("login_dialog");
     });
  
