@@ -106,12 +106,18 @@ h1 {
 .ui-dialog {
   top: 300px;
 }
+#login_dialog{
+   width:100%;
+  height:100%;
+}
 
 #login_dialog label {
   float: left;
   line-height: 32px;
-  z-index: 500;
+
   margin: auto;
+  width:100%;
+  height:100%;
 }
 
 #jid, #password {
