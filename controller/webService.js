@@ -1,5 +1,5 @@
 function requestFromServer(url){
-    var result;
+      var result;
     console.log(url);
     $.ajax({
        type: 'post',
@@ -7,8 +7,8 @@ function requestFromServer(url){
        dataType: 'xml',
        success: function(xmlDoc) {
            
-         result=$(xmlDoc).text();
+           result=$(xmlDoc).text();   return result;
      }
        });
-    return result;
+ 
 }

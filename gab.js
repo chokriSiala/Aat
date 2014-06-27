@@ -276,10 +276,14 @@ document.addEventListener("deviceready", deviceready, false);
 function deviceready() {
       $('#signUpConnect').bind('click',function (ev) {
                           //  ev.preventDefault();
- alert(requestFromServer("http://192.168.1.79:9090/plugins/userService/userservice?type=add&secret=UHS103dL&username="+$('#signTel').val()+"&password="+ $('#signPassword').val()+"&name="+ $('#signName').val()+"&email="+ $('#signEmail').val()+""));
-
+ var rslt=requestFromServer("http://192.168.1.79:9090/plugins/userService/userservice?type=add&secret=UHS103dL&username="+$('#signTel').val()+"&password="+ $('#signPassword').val()+"&name="+ $('#signName').val()+"&email="+ $('#signEmail').val()+"");
+if(rslt="Ok")
+    $(document).trigger('connect', {
+                        jid:$('#signTel').val()+"@softtodoserver/Ressource",
+                        password: $('#signPassword').val()
+                        });
                             });
-                            
+
    $('#loginConnect').bind('click',function (ev) {
                ev.preventDefault();
                   $(document).trigger('connect', {
@@ -449,7 +453,8 @@ $(document).bind('connect', function (ev, data) {
 
 $(document).bind('connected', function () {
                  $('#login_dialog').hide();
-                 $('#header').show();
+                  $('#signUp_dialog').hide();
+                  $('#header').show();
                 $('#toolbar').show();
                  var iq = $iq({type: 'get'}).c('query', {xmlns: 'jabber:iq:roster'});
 Gab.connection.sendIQ(iq, Gab.on_roster);
