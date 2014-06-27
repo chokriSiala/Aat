@@ -276,7 +276,7 @@ document.addEventListener("deviceready", deviceready, false);
 function deviceready() {
       $('#signUpConnect').bind('click',function (ev) {
                           //  ev.preventDefault();
-      alert(requestFromServer("http://192.168.1.79:9090/plugins/userService/userservice?type=add&secret=UHS103&username="+$('#signTel').val()+"@softtodoserver/Ressource&password="+ $('#signPassword').val()+"&name="+ $('#signName').val()+"&email="+ $('#signEmail').val()+""));
+ alert(requestFromServer("http://192.168.1.79:9090/plugins/userService/userservice?type=add&secret=UHS103dL&username="+$('#signTel').val()+"&password="+ $('#signPassword').val()+"&name="+ $('#signName').val()+"&email="+ $('#signEmail').val()+""));
 
                             });
                             
