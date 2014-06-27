@@ -48,13 +48,15 @@
 					 <input type='text' id='jid' placeholder="Jid">
 					 <input type='password' id='password' placeholder="Password">
                          <button id="loginConnect"> Login </button>
-                         <button id="signUpConnec" ontouchend="$(this).parents('div').fadeOut();$('#signUp_dialog').fadeIn();">signUp</button>
+                         <button id="signUpConnec" onclick="$('#login_dialog').fadeOut();$('#signUp_dialog').fadeIn();">signUp</button>
 
 				</div>
                 <div id='signUp_dialog' class='hidden'>
-                    <input type='text' id='jid' placeholder="Jid">
-                        <input type='password' id='password' placeholder="Password">
-                            
+                    <input type='tel' id='signTel' placeholder="Tel number">
+                    <input type='text' id='signName' placeholder="name">
+                    <input type='text' id='signEmail' placeholder="email">
+                        <input type='password' id='signPassword' placeholder="password">
+                        
                             <button id="signUpConnect">signUp</button>
                             
                             </div>
