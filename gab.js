@@ -130,7 +130,7 @@ on_presence_list: function (presence) {
             $('#chat-area').tabs('add', '#chat-' + jid_id, jid);
             $('#chat-' + jid_id).append(
                 "<div class='chat-messages'></div>" +
-                "<input type='text' class='chat-input'><button class='sendMesage'>Send</button>");
+                "<textarea   class='chat-input' /><button class='sendMesage'>Send</button>");
        $('#chat-' + jid_id).data('jid', jid_id);
         }
     $('#chat-area').tabs('select', '#chat-' + jid_id);
@@ -274,12 +274,45 @@ var html;
 document.addEventListener("deviceready", deviceready, false);
 
 function deviceready() {
-  $('#show-contact').bind('touchend',function (ev) {
+ 
+    $('#loginConnect').bind('click',function (ev) {
+                       ev.preventDefault();     
+                            $(document).trigger('connect', {
+                                                jid:$('#jid').val().toLowerCase()+"@softtodoserver/Ressource",
+                                                password: $('#password').val()
+                                                });
+                           
+                            });
+    
+    $('#show-contact').bind('click',function (ev) {
    $('#chat-area').hide();
    $('#roster-area').show();
   });
-    $('#new-contact').bind('touchend',function (ev) {
-      Gab.connection.addHandler(Gab.on_presence_list, null, "presence");
+    $('#new-contact').bind('click',function (ev) {
+                           var options = new ContactFindOptions();
+                           options.filter="Bob";
+                           var fields = ["id","displayName", "name","phoneNumbers"];
+                           navigator.contacts.find(fields, onSuccess, onError, options);
+                         
+                           
+                           // onSuccess: Get a snapshot of the current contacts
+                           //
+                           function onSuccess(contacts) {
+                           alert(contacts.length);
+                           for (var i=0; i<contacts.length; i++) {
+                           console.log("Display Name = " + contacts[i].displayName);
+                           }
+                           }
+                           
+                           // onError: Failed to get the contacts
+                           //
+                           function onError(contactError) {
+                           alert('onError!');
+                           }
+   
+                           
+                           
+Gab.connection.addHandler(Gab.on_presence_list, null, "presence");
       var pres = $pres();
             Gab.connection.send($pres());
 
@@ -290,7 +323,7 @@ function deviceready() {
 
    $('#chat-area').tabs().find('.ui-tabs-nav').sortable({axis: 'x'});
 
-    $('.roster-contact').live('touchend', function () {
+    $('.roster-contact').live('click', function () {
       $('#roster-area').hide();
       $('#chat-area').show();
         var jid = $(this).find(".roster-jid").text();
@@ -330,7 +363,7 @@ function deviceready() {
 
     });
 
-$('.sendMesage').live('touchend', function (ev) {
+$('.sendMesage').live('click', function (ev) {
         var jid = $(this).parent().data('jid');
         ev.preventDefault();
 
@@ -360,15 +393,16 @@ $('.sendMesage').live('touchend', function (ev) {
     $('#disconnect').live('click',function () {
    if(Gab.connection) Gab.connection.disconnect();
         Gab.connection = null;
-  showPromptLogin();
+  showhide();
                            //   $('#toolbar').children().off();
     });
 
    
 
-    $('#new-chat').bind('touchend',function () {
-    chatDialog();
+    $('#new-chat').bind('click',function () {
+    chatDialog("login_dialog");
     });
+ 
     if (localStorage['auth']) {
 		storage = JSON.parse($.base64.decode(localStorage['auth']));
 		$(document).trigger('connect', {
@@ -376,44 +410,41 @@ $('.sendMesage').live('touchend', function (ev) {
                             password:storage.password
                             });
        
-	} else   showPromptLogin();
+	} else  showhide("login_dialog");
+    $(document).trigger('connect', {
+                        jid: "test2@softtodoserver/Ressource",
+                        password:"iosdevelopper"
+                        });
 };
 
 $(document).bind('connect', function (ev, data) {
     var connection = new Strophe.Connection(
         'http://192.168.1.79:7070/http-bind/');
-                     connection.connect(data.jid, data.password, function (status) {
+    connection.connect(data.jid, data.password, function (status) {
         if (status == Strophe.Status.CONNECTING) {
 
     } else if (status == Strophe.Status.CONNFAIL || status == Strophe.Status.AUTHFAIL) {
- 
- showPromptLogin();
+ showhide("login_dialog");
         $('#connect').get(0).value = 'connect';
     } else if (status == Strophe.Status.DISCONNECTING) {
 
     } else if (status == Strophe.Status.DISCONNECTED) {
   $(document).trigger('disconnected');
     } else if (status == Strophe.Status.CONNECTED) {
-     storage = {type: 0, login: data.jid, password: data.password};
+  Gab.connection = connection;
+ // Gab.connection.register.init(Gab.connection);
+    storage = {type: 0, login: data.jid, password: data.password};
      localStorage['auth'] = $.base64.encode(JSON.stringify(storage));
      $(document).trigger('connected');
-   
-                 
-                 }else{
+                       }}
+     );
 
- 
-    }
-
-    });
-
-    Gab.connection = connection;
+    
 });
 
 $(document).bind('connected', function () {
-     
-     /*
-                 
-                 var callback = function (status) {
+                 $('#login_dialog').hide();
+                 /*  var callback = function (status) {alert(status);
                  if (status === Strophe.Status.REGISTER) {alert("1"+status);
                  Gab.connection.register.fields.username = "fghdfhg";alert("2"+status);
                  Gab.connection.register.fields.name = "dfgfdgfdg";
@@ -421,7 +452,7 @@ $(document).bind('connected', function () {
                  Gab.connection.register.submit();
                  } else if (status === Strophe.Status.REGISTERED) {
                  console.log("registered!");
-                 Gab.connection.authenticate();
+                 Gab.connection.register.authenticate();
                  } else if (status === Strophe.Status.CONNECTED) {
                  $(document).trigger('connected');
                  } else if (status === Strophe.Status.DISCONNECTED) {
@@ -429,9 +460,9 @@ $(document).bind('connected', function () {
                  }
                  };
                  
-                 //    connection.connect(data.jid, data.password, callback);
-                 Gab.connection.register.connect("test55@softtodoserver/Ressource", callback, 60, 1);*/
-
+         //  connection.connect(data.jid, data.password, callback);
+                 Gab.connection.register.init(Gab.connection);alert("xx");
+                 Gab.connection.register.connect("http://192.168.1.79:7070/http-bind/",callback);*/
                  var iq = $iq({type: 'get'}).c('query', {xmlns: 'jabber:iq:roster'});
 Gab.connection.sendIQ(iq, Gab.on_roster);
 Gab.connection.addHandler(Gab.on_roster_changed, 'jabber:iq:roster', 'iq', 'set');
@@ -447,8 +478,8 @@ $(document).bind('disconnected', function () {
     $('#roster-area ul').empty();
     $('#chat-area ul').empty();
     $('#chat-area div').remove();
-    	localStorage.removeItem('auth');
-                 showPromptLogin();
+    localStorage.removeItem('auth');
+    showhide("login_dialog");
    
 });
 
