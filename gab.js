@@ -126,14 +126,15 @@ on_presence_list: function (presence) {
         var jid_id = Gab.jid_to_id(jid);
 
 //alert(new Date().toISOString());
-        if ($('#chat-' + jid_id).length === 0) {
-            $('#chat-area').tabs('add', '#chat-' + jid_id, jid);
-            $('#chat-' + jid_id).append(
-                "<div class='chat-messages'></div>" +
-                "<textarea   class='chat-input' /><button class='sendMesage'>Send</button>");
-       $('#chat-' + jid_id).data('jid', jid_id);
+      alert($('#chat-' + jid_id).length );
+      if ($('#chat-' + jid_id).length === 0) {
+         //   $('#chat-area').tabs('add', '#chat-' + jid_id, jid);
+          $('#chat-area').append(
+                                 "<div id='chat-" + jid_id+"'><div class='chat-messages'></div>" +
+                                 "<input type='text' class='chat-input'><button class='sendMesage'>Send</button></div>");
+       //$('#chat-' + jid_id).data('jid', jid_id);
         }
-    $('#chat-area').tabs('select', '#chat-' + jid_id);
+    //$('#chat-area').tabs('select', '#chat-' + jid_id);
        // $('#chat-' + jid_id + ' input').focus();
 
         var composing = $(message).find('composing');
@@ -330,7 +331,7 @@ Gab.connection.addHandler(Gab.on_presence_list, null, "presence");
 
     
 
-   $('#chat-area').tabs().find('.ui-tabs-nav').sortable({axis: 'x'});
+   //$('#chat-area').tabs().find('.ui-tabs-nav').sortable({axis: 'x'});
 
     $('.roster-contact').live('click', function () {
       $('#roster-area').hide();
@@ -339,15 +340,16 @@ Gab.connection.addHandler(Gab.on_presence_list, null, "presence");
         var name = $(this).find(".roster-name").text();
         var jid_id = Gab.jid_to_id(jid);
                            
- 
+      $('.chatt').hide();
         if ($('#chat-' + jid_id).length === 0) {
-            $('#chat-area').tabs('add', '#chat-' + jid_id, name);
-            $('#chat-' + jid_id).append(
-                "<div class='chat-messages'></div>" +
-                "<input type='text' class='chat-input'><button class='sendMesage'>Send</button>");
+       $('#chat-area').tabs('add', '#chat-' + jid_id, name);
+            $('#chat-area').append(
+                "<div id='chat-" + jid_id+"' class='chatt'><div class='chat-messages'></div>" +
+                "<input type='text' class='chat-input'><button class='sendMesage'>Send</button></div>");
             $('#chat-' + jid_id).data('jid', jid);
-        }
-        $('#chat-area').tabs('select', '#chat-' + jid_id);
+        }else
+       $('#chat-' + jid_id).show();
+        
   
         //$('#chat-' + jid_id + ' input').focus();
        
@@ -374,6 +376,7 @@ Gab.connection.addHandler(Gab.on_presence_list, null, "presence");
 
 $('.sendMesage').live('click', function (ev) {
         var jid = $(this).parent().data('jid');
+                      alert(jid);
         ev.preventDefault();
 
             var body = $('.chat-input').val();
