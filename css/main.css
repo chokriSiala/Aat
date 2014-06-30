@@ -15,7 +15,12 @@
 }
 
 #header {
-  height: 26px;
+  position: fixed;
+    overflow: hidden;
+    display: block;
+    z-index: 250;
+    width:100%;
+    height: 44px;
   background-color: #000;
   color: #FFF;
   padding: 11px;
@@ -23,28 +28,38 @@
   font-size: 18px;
 }
 
+
 .container {
-  padding: 0;
-  padding-bottom: 55px;
+  position: relative;
+  padding-top: 50px;
   min-height: 460px;
   overflow: hidden;
   width: inherit;
+padding-bottom: 65px;
+ overflow: hidden;
+  -moz-user-select: none;
+
 }
 
 /* Toolbar */
+
+
+
 #toolbar {
-  position: absolute;
+  position: fixed;
   background-repeat: repeat;
   width: 100%;
-  height: 64px;
-  position: absolute;
-  bottom: 0;
-  z-index: 99999;
+  height: 58px;
+margin-left: auto;
+margin-right: auto;
+bottom: -4px;
+  z-index: 250;
+  background-color: #101010;
 }
 
 #toolbar .button {
   float: left;
-  width: 18.88%;
+  width: 20%;
   text-indent: -99999px;
   text-align: center;
   font-family: 'Open Sans', sans-serif;
@@ -55,7 +70,7 @@
   height: 55px;
   background-repeat: no-repeat;
   background-size: 42px 107px;
-  height: 47%;
+
   padding-top: 30px;
   opacity: 1;
   cursor: pointer;
@@ -91,15 +106,29 @@
 }
 
 * {
-  transform: translate3d(0, 0, 0);
+	-webkit-user-select:none; /* Prevent copy paste for all elements except text fields */
+	-webkit-tap-highlight-color:rgba(0, 0, 0, 0); /* set highlight color for user interaction */
+	-moz-tap-highlight-color:rgba(0, 0, 0, 0); /* set highlight color for user interaction */
+	-ms-touch-action:none;
+	-moz-user-select:none;
+	-webkit-touch-callout: none; /* prevent the popup menu on any links*/
+	margin:0;
+	padding:0;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+    -webkit-touch-callout: none;
+
+}
+input[type="tel"] {
+    -webkit-user-select: text;
 }
 
 body {
   font-family: Helvetica;
-  margin: 0px;
-  padding: 0px;
-  height: 100%;
+    height: 100%;
   background: url("../images/bg-image.jpg") no-repeat;
+    background-size:   cover;
 }
 
 h1 {
@@ -295,9 +324,10 @@ h1 {
 
 .chat-footer .send_message button {
   float: right;
-  height: 24px;
+  height: 45px;
   line-height: 23px;
   margin-right: 15px;
+  width:100%;
 }
 
 #chat-area input {
@@ -333,8 +363,8 @@ h1 {
 
 .wrapper {
   position: relative;
-  height: 100%;
-  width: 100%;
+
+ min-height:100%;
 }
 
 .online {
