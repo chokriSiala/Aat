@@ -298,7 +298,13 @@ if(rslt="Ok")
    $('#chat-area').hide();
    $('#roster-area').show();
   });
-    $('#chat-btn').bind('click',function (ev) {
+    $('#backbutton').bind('click',function (ev) {
+                       $('#chat-area').hide();
+                          
+                        $('#roster-area').show('slide',{direction:'left'},1000);
+                        });
+
+                        $('#chat-btn').bind('click',function (ev) {
                            var options = new ContactFindOptions();
                            options.filter="Bob";
                            var fields = ["id","displayName", "name","phoneNumbers"];
@@ -347,8 +353,8 @@ Gab.connection.addHandler(Gab.on_presence_list, null, "presence");
                 "<div id='chat-" + jid_id+"' class='chatt'><div class='chat-messages'></div>" +
                 "<input type='text' class='chat-input'><button class='sendMesage'>Send</button></div>");
             $('#chat-' + jid_id).data('jid', jid);
-        }else
-       $('#chat-' + jid_id).show();
+        }
+       $('#chat-' + jid_id).show('slide',{direction:'right'},1000);
         
   
         //$('#chat-' + jid_id + ' input').focus();
