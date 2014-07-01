@@ -232,6 +232,7 @@ var html;
           "</span>&gt;<span class='chat-text'>" +
           body +
           "</span></div>");
+      alert(jid);
       Gab.scroll_chat(Gab.jid_to_id(jid));
 
       $('.chat-input').val('');
@@ -275,7 +276,15 @@ var html;
 document.addEventListener("deviceready", deviceready, false);
 
 function deviceready() {
-      $('#signUpConnect').bind('click',function (ev) {
+    $("input").focus(function() {
+                     this.value = "";
+                     });
+    $('.wrapper').fullpage({
+                            sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE'],
+                            css3: true
+                            });
+
+    $('#signUpConnect').bind('touchend',function (ev) {
                           //  ev.preventDefault();
  var rslt=requestFromServer("http://192.168.1.79:9090/plugins/userService/userservice?type=add&secret=UHS103dL&username="+$('#signTel').val()+"&password="+ $('#signPassword').val()+"&name="+ $('#signName').val()+"&email="+ $('#signEmail').val()+"");
 if(rslt="Ok")
@@ -285,7 +294,7 @@ if(rslt="Ok")
                         });
                             });
 
-   $('#loginConnect').bind('click',function (ev) {
+   $('#loginConnect').bind('touchend',function (ev) {
                ev.preventDefault();
                   $(document).trigger('connect', {
                                                 jid:$('#jid').val().toLowerCase()+"@softtodoserver/Ressource",
@@ -294,23 +303,22 @@ if(rslt="Ok")
                            
                             });
     
-    $('#contact-btn').bind('click',function (ev) {
+    $('#contact-btn').bind('touchend',function (ev) {
    $('#chat-area').hide();
    $('#roster-area').show();
   });
-    $('#backbutton').bind('click',function (ev) {
-                       $('#chat-area').hide();
+    $('#backbutton').bind('touchend',function (ev) {
+                       ev.preventDefault();
+                          $('#chat-area').hide();
                           
                         $('#roster-area').show('slide',{direction:'left'},1000);
                         });
 
-                        $('#chat-btn').bind('click',function (ev) {
+                        $('#chat-btn').bind('touchend',function (ev) {
                            var options = new ContactFindOptions();
                            options.filter="Bob";
                            var fields = ["id","displayName", "name","phoneNumbers"];
                            navigator.contacts.find(fields, onSuccess, onError, options);
-                         
-                           
                            // onSuccess: Get a snapshot of the current contacts
                            //
                            function onSuccess(contacts) {
@@ -339,7 +347,7 @@ Gab.connection.addHandler(Gab.on_presence_list, null, "presence");
 
    //$('#chat-area').tabs().find('.ui-tabs-nav').sortable({axis: 'x'});
 
-    $('.roster-contact').live('click', function () {
+    $('.roster-contact').live('touchend', function () {
       $('#roster-area').hide();
       $('#chat-area').show();
         var jid = $(this).find(".roster-jid").text();
@@ -348,7 +356,7 @@ Gab.connection.addHandler(Gab.on_presence_list, null, "presence");
                            
       $('.chatt').hide();
         if ($('#chat-' + jid_id).length === 0) {
-       $('#chat-area').tabs('add', '#chat-' + jid_id, name);
+      // $('#chat-area').tabs('add', '#chat-' + jid_id, name);
             $('#chat-area').append(
                 "<div id='chat-" + jid_id+"' class='chatt'><div class='chat-messages'></div>" +
                 "<input type='text' class='chat-input'><button class='sendMesage'>Send</button></div>");
@@ -380,7 +388,7 @@ Gab.connection.addHandler(Gab.on_presence_list, null, "presence");
 
     });
 
-$('.sendMesage').live('click', function (ev) {
+$('.sendMesage').live('touchend', function (ev) {
         var jid = $(this).parent().data('jid');
       
         ev.preventDefault();
@@ -393,14 +401,15 @@ $('.sendMesage').live('click', function (ev) {
            "type": "chat"}).c('body').t(body).c('delay',today).up().c('active', {xmlns: "http://jabber.org/protocol/chatstates"});
          Gab.connection.send(message);
           //  Gab.connection.send(message);
-                      alert(body+" "+ Strophe.getNodeFromJid(Gab.connection.jid) );
-            $(this).parent().find('.chat-messages').append(
-                "<div class='chat-message'>&lt;" +
-                "<span class='chat-name me'>" +
-                Strophe.getNodeFromJid(Gab.connection.jid) +
-                "</span>&gt;<span class='chat-text'>" +
-                body +
-                "</span></div>");
+                 var  html = '<article class="message-wrap">';
+                      html += '<div class="message">';
+                      html += '<header><h4>' +   Strophe.getNodeFromJid(Gab.connection.jid)  + '</h4></header>';
+                      html += '<section>' + body + '</section>';
+                      html += '<footer class="time">' +  today+ '</footer>';
+                      html += '</div></article>';
+
+                      
+        $(this).parent().find('.chat-messages').append(html);
           Gab.scroll_chat(Gab.jid_to_id(jid));
 
             $('.chat-input').val('');
@@ -408,7 +417,7 @@ $('.sendMesage').live('click', function (ev) {
 
     });
 
-    $('#config-btn').live('click',function () {
+    $('#config-btn').live('touchend',function () {
    if(Gab.connection) Gab.connection.disconnect();
         Gab.connection = null;
   showhide();
@@ -417,7 +426,7 @@ $('.sendMesage').live('click', function (ev) {
 
    
 
-    $('#calendar-btn').bind('click',function () {
+    $('#calendar-btn').bind('touchend',function () {
     chatDialog("login_dialog");
     });
  

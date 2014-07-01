@@ -45,7 +45,7 @@ function onApprove_dialog(results) {
 
 
 function approve_dialog() {
-    navigator.notification.prompt(
+    navigator.notification.alert(
                                     $('#approve-jid').text()+" has requested a subscription to your presence.  Approve or Deny?",   // message
                                   onApprove_dialog,                  // callback to invoke
                                'Subscription Request' ,            // title
