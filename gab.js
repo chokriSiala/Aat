@@ -126,7 +126,7 @@ on_presence_list: function (presence) {
         var jid_id = Gab.jid_to_id(jid);
 
 //alert(new Date().toISOString());
-      alert($('#chat-' + jid_id).length );
+      
       if ($('#chat-' + jid_id).length === 0) {
          //   $('#chat-area').tabs('add', '#chat-' + jid_id, jid);
           $('#chat-area').append(
@@ -314,7 +314,7 @@ if(rslt="Ok")
                            // onSuccess: Get a snapshot of the current contacts
                            //
                            function onSuccess(contacts) {
-                           alert(contacts.length);
+                           
                            for (var i=0; i<contacts.length; i++) {
                            console.log("Display Name = " + contacts[i].displayName);
                            }
@@ -382,10 +382,10 @@ Gab.connection.addHandler(Gab.on_presence_list, null, "presence");
 
 $('.sendMesage').live('click', function (ev) {
         var jid = $(this).parent().data('jid');
-                      alert(jid);
+      
         ev.preventDefault();
 
-            var body = $('.chat-input').val();
+            var body =  $(this).parent().find('.chat-input').val();
                       var today=new Date();
                      today=today.format("yyyy-mm-dd hh:mm");;
 
@@ -393,7 +393,7 @@ $('.sendMesage').live('click', function (ev) {
            "type": "chat"}).c('body').t(body).c('delay',today).up().c('active', {xmlns: "http://jabber.org/protocol/chatstates"});
          Gab.connection.send(message);
           //  Gab.connection.send(message);
-
+                      alert(body+" "+ Strophe.getNodeFromJid(Gab.connection.jid) );
             $(this).parent().find('.chat-messages').append(
                 "<div class='chat-message'>&lt;" +
                 "<span class='chat-name me'>" +
@@ -401,10 +401,10 @@ $('.sendMesage').live('click', function (ev) {
                 "</span>&gt;<span class='chat-text'>" +
                 body +
                 "</span></div>");
-            Gab.scroll_chat(Gab.jid_to_id(jid));
+          Gab.scroll_chat(Gab.jid_to_id(jid));
 
             $('.chat-input').val('');
-            $('.chat-input').parent().data('composing', false);
+          //  $('.chat-input').parent().data('composing', false);
 
     });
 
