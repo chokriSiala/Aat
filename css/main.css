@@ -1,9 +1,15 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400);
 @media (max-width: 768px) {
   .container {
     padding: 0;
     width: 100%;
   }
 }
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400)");
+}
+
 /* logo */
 .logo {
   background: #e6e6e6 url(../images/logo.png) no-repeat center;
@@ -175,20 +181,34 @@ h1 {
 }
 
 #brand {
-  background: url("../images/brand.png") no-reapeat;
+  margin: 0 auto;
+  background: url(../images/brand.png) 50% 50% no-repeat !important;
+  width: 183px;
+  height: 207px;
 }
 
+#login_dialog {
+  margin: 0 auto;
+  width: 250px;
+}
+#login_dialog h1 {
+  font-family: 'Source Sans Pro';
+  text-align: left;
+  font-style: normal;
+  font-weight: 200;
+  color: #fff;
+}
 #login_dialog label {
   float: left;
   line-height: 32px;
   z-index: 500;
   margin: auto;
 }
-
-#jid, #password {
+#login_dialog #jid, #login_dialog #password {
   margin: 10px 0;
+  padding: 0 5px;
   display: block;
-  width: 200px;
+  width: 100%;
   font-size: 16px;
   height: 30px;
   color: #000;
@@ -198,8 +218,7 @@ h1 {
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
-
-#loginConnect, #signUpConnec {
+#login_dialog #loginConnect, #login_dialog #signUpConnec {
   margin-bottom: 10px;
   display: block;
   border: solid 1px #101010;
@@ -207,16 +226,33 @@ h1 {
   -moz-border-radius: 4px;
   border-radius: 4px;
   color: #fff;
-  width: 200px;
+  width: 100%;
   height: 35px;
 }
-
-#loginConnect {
-  background: #101010 url("../images/arrow.png") no-repeat 65px;
+#login_dialog #loginConnect {
+  background: #101010 url("../images/arrow.png") no-repeat 90px;
+}
+#login_dialog #signUpConnec {
+  background: #101010 url("../images/arrow.png") no-repeat 90px;
 }
 
-#signUpConnec {
-  background: #101010 url("../images/arrow.png") no-repeat 65px;
+#signUp_dialog {
+  margin: 0 auto;
+  width: 250px;
+}
+#signUp_dialog #signTel, #signUp_dialog #signName, #signUp_dialog #signEmail, #signUp_dialog #signPassword, #signUp_dialog #signUpConnect {
+  margin: 10px 0;
+  padding: 0 5px;
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  height: 30px;
+  color: #000;
+  background: #fff;
+  border: solid 1px #fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
 }
 
 .ui-state-active {
