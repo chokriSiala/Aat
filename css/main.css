@@ -4,6 +4,7 @@
     width: 100%;
   }
 }
+/* logo */
 .logo {
   background: #e6e6e6 url(../images/logo.png) no-repeat center;
   text-indent: -9999px;
@@ -119,6 +120,10 @@
   -webkit-touch-callout: none;
 }
 
+input {
+  -webkit-user-select: text;
+}
+
 body {
   font-family: Helvetica;
   height: 100%;
@@ -169,6 +174,10 @@ h1 {
   top: 300px;
 }
 
+#brand {
+  background: url("../images/brand.png") no-reapeat;
+}
+
 #login_dialog label {
   float: left;
   line-height: 32px;
@@ -177,21 +186,37 @@ h1 {
 }
 
 #jid, #password {
+  margin: 10px 0;
   display: block;
-  width: 196px;
-  font-size: 14px;
+  width: 200px;
+  font-size: 16px;
+  height: 30px;
+  color: #000;
+  background: #fff;
+  border: solid 1px #fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
 }
 
 #loginConnect, #signUpConnec {
+  margin-bottom: 10px;
   display: block;
-  background: #101010;
   border: solid 1px #101010;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
   color: #fff;
   width: 200px;
-  height: 30px;
+  height: 35px;
+}
+
+#loginConnect {
+  background: #101010 url("../images/arrow.png") no-repeat 65px;
+}
+
+#signUpConnec {
+  background: #101010 url("../images/arrow.png") no-repeat 65px;
 }
 
 .ui-state-active {
