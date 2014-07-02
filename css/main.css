@@ -30,11 +30,13 @@
   height: 44px;
   background-color: #000;
   color: #FFF;
-  padding: 11px;
+
   text-align: center;
   font-size: 18px;
 }
-
+#header title{
+ padding: 11px;
+}
 .container {
   position: relative;
   padding-top: 50px;
