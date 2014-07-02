@@ -33,8 +33,12 @@
   padding: 11px;
   text-align: center;
   font-size: 18px;
+  display: inline; 
 }
+#header  Title{
+vertical-align: middle;
 
+}
 .container {
   position: relative;
   padding-top: 50px;
@@ -434,7 +438,7 @@ h1 {
   width: 99.9%;
   height: 35pt;
   font-family: Century Gothic;
-  color: #7f7f7f;
+  color: #000000;
   font-weight: bold;
   font-size: 14px;
   padding: 0;
@@ -444,23 +448,15 @@ h1 {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   border-bottom: 1px solid #7f7f7f;
-  background: #cccccc;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, white 1%, #cccccc 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #cccccc), color-stop(100%, #cccccc));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #e4e8eb, #cbd2d8 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #e4e8eb, #cbd2d8 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #e4e8eb, #cbd2d8 100%);
-  /* IE10+ */
-  background: linear-gradient(to bottom, #e4e8eb, #cbd2d8 100%);
-  /* W3C */
+  background: #101010 url("../images/arrow.png") no-repeat 90px;
+background-position: calc(100% - 10px) center;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#326385', endColorstr='#194765',GradientType=0 );
 }
 
+#rosterList li :hover{
+ background: #000000;
+ color:#fff;
+}
 .roster-contact {
   padding: 3px;
 }
@@ -492,7 +488,7 @@ h1 {
 }
 
 .offline {
-  color: #000;
+  color: #0b0000;
 }
 
 .chat-name {
