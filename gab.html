@@ -29,9 +29,11 @@
   </head>
   <body>
    <div class="wrapper" data-role="page" >
-   <div id="header" class='hidden' data-role="header">
-     <div align="left" id="backbutton">Retour</div>
-     Aateepee
+   <div id="header"  data-role="header">
+     <div align="left" class='hidden' id="backbutton">Retour</div>
+     <div align="center" id="Title" style="text-align:center">Aateepee</div>
+
+
    </div>
 	  	<div class="container"  data-role="content">
             
@@ -41,7 +43,7 @@
                 </div>
                 
                 <div id='roster-area' class='hidden'>
-                    <ul></ul>
+                    <ul id="rosterList" data-role="listview"></ul>
                 </div>
                 
                 <!-- login dialog -->
@@ -60,7 +62,7 @@
                                 <input type='password' id='signPassword' placeholder="password">
                                     
                                     <button id="signUpConnect">signUp</button>
-                                    
+                                   <button id="signUplogin" onclick="$('#signUp_dialog').fadeOut();$('#login_dialog').fadeIn();"> Login </button>
                                     </div>
                 
                 

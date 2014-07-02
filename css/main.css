@@ -342,6 +342,7 @@ h1 {
 }
 
 .chat-messages {
+  width:100%;
   height: 280px;
   font-size: 14px;
   border-bottom: solid 2px #ddd;
@@ -430,8 +431,30 @@ h1 {
   padding: 10px;
   width: 100%;
   height: 80%;
+  overflow-y: auto;
+overflow-x: hidden;
 }
-
+#rosterList li {
+    
+    display: block;
+    width:99.9%;
+    height:35pt;
+    font-family:Century Gothic;
+    color:#7f7f7f;
+    font:size:16px;
+    font-weight:bold;
+  font-size:14px;
+     padding:0;margin-top:0;border-top:none;border-radius:0px !important;border-bottom-left-radius:5px;border-bottom-right-radius:5px;border-bottom:1px solid #7f7f7f;
+    background: rgb(204,204,204); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(255,255,255,1) 1%, rgba(204,204,204,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(204,204,204,1)), color-stop(100%,rgba(204,204,204,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(228, 232, 235, 1),rgba(203, 210, 216, 1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(228, 232, 235, 1),rgba(203, 210, 216, 1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(228, 232, 235, 1),rgba(203, 210, 216, 1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(228, 232, 235, 1),rgba(203, 210, 216, 1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#326385', endColorstr='#194765',GradientType=0 );
+    
+}
 .roster-contact {
   padding: 3px;
 }
@@ -463,7 +486,7 @@ h1 {
 }
 
 .offline {
-  color: #ccc;
+  color: #000;
 }
 
 .chat-name {
