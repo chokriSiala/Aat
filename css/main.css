@@ -328,6 +328,7 @@ h1 {
 }
 
 .chat-messages {
+  background: #fff;
   padding: 0 10px;
   width: 100%;
   height: 280px;
@@ -498,7 +499,7 @@ h1 {
   font-family: inherit;
   font-size: 15px;
   line-height: 12px;
-  padding: 4px 5px;
+  padding: 7px 5px;
 }
 
 .chat-message {
@@ -510,11 +511,8 @@ h1 {
 /* .bubble */
 .bubble {
   background: #e1e1e1;
-  border: solid 1px rgba(0, 0, 0, 0.5);
   /* vendor rules */
   border-radius: 6px;
-  /* vendor rules */
-  box-shadow: inset 0 5px 5px rgba(255, 255, 255, 0.4), 0 1px 3px rgba(0, 0, 0, 0.2);
   /* vendor rules */
   box-sizing: border-box;
   clear: both;
@@ -525,6 +523,16 @@ h1 {
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
   width: 100%;
   word-wrap: break-word;
+}
+.bubble .message header h4 {
+  float: left;
+  margin-right: 8px;
+}
+.bubble .message header span {
+  float: left;
+}
+.bubble .message section {
+  clear: left;
 }
 
 .bubble:before {
@@ -545,6 +553,7 @@ h1 {
 }
 
 .bubble--alt {
+  border: solid 1px rgba(0, 0, 0, 0.5);
   background: #fff;
   float: right;
 }
@@ -558,11 +567,14 @@ h1 {
 }
 
 .bubble--alt:after {
-  border-width: 20px 0 0 20px;
-  border-style: solid;
-  border-color: #e1e1e1 rgba(0, 0, 0, 0);
-  left: auto;
-  right: -25px;
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 38px;
+  top: 100px;
+  border: 10px solid;
+  border-color: #fff transparent transparent #fff;
 }
 
 .chat-text {
