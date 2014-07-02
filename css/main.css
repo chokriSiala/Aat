@@ -21,6 +21,7 @@
   padding: 0;
 }
 
+/* Aateepee header */
 #header {
   position: fixed;
   overflow: hidden;
@@ -33,7 +34,8 @@
   padding: 11px;
   text-align: center;
   font-size: 18px;
-  background: #e6e6e6 url(../images/logo-white.png) no-repeat center;
+  background: #686868 url(../images/logo-white.png) no-repeat center;
+  background-size: 125px 16px;
 }
 
 .container {
