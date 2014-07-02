@@ -121,21 +121,18 @@ on_presence_list: function (presence) {
   on_message: function (message) {
       $('#roster-area').hide();
       $('#chat-area').show();
- 
+      
       var full_jid = $(message).attr('from');
         var jid = Strophe.getBareJidFromJid(full_jid);
         var jid_id = Gab.jid_to_id(jid);
-
-//alert(new Date().toISOString());
-      
-      if ($('#chat-' + jid_id).length === 0) {
-         //   $('#chat-area').tabs('add', '#chat-' + jid_id, jid);
+ if ($('#chat-' + jid_id).length === 0) {
+           //   $('#chat-area').tabs('add', '#chat-' + jid_id, jid);
           $('#chat-area').append(
                                  "<div id='chat-" + jid_id+"'><div class='chat-messages'></div>" +
                                  "<input type='text' class='chat-input'><button class='sendMesage'>Send</button></div>");
-       //$('#chat-' + jid_id).data('jid', jid_id);
+       
         }
-    //$('#chat-area').tabs('select', '#chat-' + jid_id);
+   $('#chat-' + jid_id).data('jid', jid_id); //$('#chat-area').tabs('select', '#chat-' + jid_id);
        // $('#chat-' + jid_id + ' input').focus();
 
         var composing = $(message).find('composing');
@@ -232,7 +229,7 @@ var html;
           "</span>&gt;<span class='chat-text'>" +
           body +
           "</span></div>");
-      alert(jid);
+    
       Gab.scroll_chat(Gab.jid_to_id(jid));
 
       $('.chat-input').val('');
@@ -355,13 +352,13 @@ Gab.connection.addHandler(Gab.on_presence_list, null, "presence");
       $('.chatt').hide();
         if ($('#chat-' + jid_id).length === 0) {
       // $('#chat-area').tabs('add', '#chat-' + jid_id, name);
-            $('#chat-area').append(
+         $('#chat-area').append(
                 "<div id='chat-" + jid_id+"' class='chatt'><div class='chat-messages'></div>" +
                 "<input type='text' class='chat-input'><button class='sendMesage'>Send</button></div>");
             $('#chat-' + jid_id).data('jid', jid);
         }
        $('#chat-' + jid_id).show('slide',{direction:'right'},1000);
-        
+      
   
         //$('#chat-' + jid_id + ' input').focus();
        
@@ -411,7 +408,7 @@ $('.sendMesage').live('click', function (ev) {
           Gab.scroll_chat(Gab.jid_to_id(jid));
 
             $('.chat-input').val('');
-          //  $('.chat-input').parent().data('composing', false);
+           $('.chat-input').parent().data('composing', false);
 
     });
 
