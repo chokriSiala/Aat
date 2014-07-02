@@ -297,23 +297,6 @@ h1 {
   border-bottom-left-radius: 0px;
 }
 
-/*** contact list ***/
-#roster-area ul {
-  padding-left: 10px;
-  list-style: none;
-}
-
-.roster-jid {
-  font-size: 8px;
-}
-
-#roster-area {
-  background-color: #000;
-  border-left: solid 2px #ddd;
-  padding: 10px;
-  margin: 5px;
-}
-
 #chat-area {
   float: left;
   width: 100%;
@@ -412,10 +395,19 @@ h1 {
   margin-right: 15px;
 }
 
+/*** contact list ***/
+#roster-area ul {
+  padding-left: 10px;
+  list-style: none;
+}
+
+.roster-jid {
+  font-size: 8px;
+}
+
 #roster-area {
   float: left;
-  border-left: solid 2px #ddd;
-  padding: 10px;
+  background-color: #000;
   width: 100%;
   height: 80%;
   overflow-y: auto;
@@ -430,7 +422,7 @@ h1 {
   color: #000000;
   font-weight: bold;
   font-size: 14px;
-  padding: 0;
+  padding: 5px 0 0 0;
   margin-top: 0;
   border-top: none;
   border-radius: 0px !important;
@@ -524,7 +516,7 @@ h1 {
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.25, #d2f4fe), color-stop(1, #95c2fd));
   border: solid 1px rgba(0, 0, 0, 0.5);
   /* vendor rules */
-  border-radius: 20px;
+  border-radius: 11px;
   /* vendor rules */
   box-shadow: inset 0 5px 5px rgba(255, 255, 255, 0.4), 0 1px 3px rgba(0, 0, 0, 0.2);
   /* vendor rules */
@@ -532,7 +524,7 @@ h1 {
   clear: both;
   float: left;
   margin-bottom: 20px;
-  padding: 8px 30px;
+  padding: 8px 18px;
   position: relative;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
   width: auto;
@@ -540,14 +532,11 @@ h1 {
   word-wrap: break-word;
 }
 
-.bubble:before, .bubble:after {
+.bubble:before {
   border-radius: 20px / 10px;
   content: '';
   display: block;
   position: absolute;
-}
-
-.bubble:before {
   border: 10px solid transparent;
   border-bottom-color: rgba(0, 0, 0, 0.5);
   bottom: 0;
@@ -556,10 +545,15 @@ h1 {
 }
 
 .bubble:after {
-  border: 8px solid transparent;
-  border-bottom-color: #d2f4fe;
-  bottom: 1px;
-  left: -5px;
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50px;
+  border-width: 20px 0 0 20px;
+  border-style: solid;
+  border-color: #075698 rgba(0, 0, 0, 0);
+  display: block;
+  width: 0;
 }
 
 .bubble--alt {
