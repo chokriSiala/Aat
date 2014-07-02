@@ -33,6 +33,7 @@
   padding: 11px;
   text-align: center;
   font-size: 18px;
+  background: #e6e6e6 url(../images/logo-white.png) no-repeat center;
 }
 
 .container {
@@ -354,16 +355,6 @@ h1 {
   opacity: 0,8;
   overflow: hidden;
   margin-bottom: 7px;
-  padding: 5px;
-}
-
-.message-wrap .message {
-  overflow: hidden;
-  font-size: 14px;
-  word-break: break-all;
-  line-height: 16px;
-  background: #fff;
-  border-radius: 4px;
   padding: 5px;
 }
 
