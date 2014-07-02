@@ -20,13 +20,13 @@ var Gab = {
             // transform jid into an id
             var jid_id = Gab.jid_to_id(jid);
 
-                               var contact = $("<li id='" + jid_id + "'>" +
-                                               "<div class='roster-contact offline'>" +
-                                               "<div class='roster-name'>" +
-                                               name +
-                                               "</div><div class='roster-jid' >" +
-                                               jid +
-                                               "</div></div></li>");
+         var contact = $("<li id='" + jid_id + "'>" +
+                "<div class='roster-contact offline'>" +
+               "<div class='roster-name'>" +
+                name +
+                "</div><div class='roster-jid' >" +
+                 jid +
+               "</div></div></li>");
             Gab.insert_contact(contact);
         });
 
@@ -282,7 +282,7 @@ function deviceready() {
                      });
    
 
-    $('#signUpConnect').bind('click',function (ev) {
+    $('#signUpConnect').bind('touchend',function (ev) {
                           //  ev.preventDefault();
  var rslt=requestFromServer("http://192.168.1.79:9090/plugins/userService/userservice?type=add&secret=UHS103dL&username="+$('#signTel').val()+"&password="+ $('#signPassword').val()+"&name="+ $('#signName').val()+"&email="+ $('#signEmail').val()+"");
 if(rslt="Ok")
@@ -292,7 +292,7 @@ if(rslt="Ok")
                         });
                             });
 
-   $('#loginConnect').bind('click',function (ev) {
+   $('#loginConnect').bind('touchend',function (ev) {
                ev.preventDefault();
                   $(document).trigger('connect', {
                                                 jid:$('#jid').val().toLowerCase()+"@softtodoserver/Ressource",
@@ -301,18 +301,18 @@ if(rslt="Ok")
                            
                             });
     
-    $('#contact-btn').bind('click',function (ev) {
+    $('#contact-btn').bind('touchend',function (ev) {
    $('#chat-area').hide();
    $('#roster-area').show();
   });
-    $('#backbutton').bind('click',function (ev) {
+    $('#backbutton').bind('touchend',function (ev) {
                        ev.preventDefault();
                           $('#chat-area').hide();
                           
                         $('#roster-area').show('slide',{direction:'left'},1000);
                         });
 
-                        $('#chat-btn').bind('click',function (ev) {
+                        $('#chat-btn').bind('touchend',function (ev) {
                            var options = new ContactFindOptions();
                            options.filter="Bob";
                            var fields = ["id","displayName", "name","phoneNumbers"];
@@ -345,7 +345,7 @@ Gab.connection.addHandler(Gab.on_presence_list, null, "presence");
 
    //$('#chat-area').tabs().find('.ui-tabs-nav').sortable({axis: 'x'});
 
-    $('.roster-contact').live('click', function () {
+    $('.roster-contact').live('touchend', function () {
       $('#roster-area').hide();
       $('#chat-area').show();
        $('#backbutton').show();
@@ -387,7 +387,7 @@ Gab.connection.addHandler(Gab.on_presence_list, null, "presence");
 
     });
 
-$('.sendMesage').live('click', function (ev) {
+$('.sendMesage').live('touchend', function (ev) {
         var jid = $(this).parent().data('jid');
       
         ev.preventDefault();
@@ -416,7 +416,7 @@ $('.sendMesage').live('click', function (ev) {
 
     });
 
-    $('#config-btn').live('click',function () {
+    $('#config-btn').live('touchend',function () {
    if(Gab.connection) Gab.connection.disconnect();
         Gab.connection = null;
   showhide();
@@ -425,7 +425,7 @@ $('.sendMesage').live('click', function (ev) {
 
    
 
-    $('#calendar-btn').bind('click',function () {
+    $('#calendar-btn').bind('touchend',function () {
     chatDialog("login_dialog");
     });
  
